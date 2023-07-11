@@ -1,0 +1,24 @@
+<script>
+    // 전개 연산자
+    // 배열이나 객체의 요소를 뿌린다.
+    const intArray = [10, 20, 30];
+
+    const secondArray = [...intArray, 40];
+    console.log(secondArray);
+
+    const obj = {
+        name: "홍길동",
+        age: 12,
+    }
+
+    const secondObj = {...obj, hobby : "야구"}
+    console.log(secondObj);
+
+    // age가 덮어씌워졌을때는 key값으로 for문 돌려서 바꿔줄 수 있다. (s04.html 참고)
+    const thirdObj = {...obj, age : 20}
+    console.log(thirdObj);
+
+    const {name, ...remainObj} = secondObj;
+    console.log(remainObj);
+
+</script>
