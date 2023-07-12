@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .red {
+            color:red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <hi id="first">내용</hi>
+    <script>
+        // 스타일 변경
+        const firstTag = document.querySelector("#first");
+        // 아래 2가지 방법을 이용한 화면 구현은 동일 하지만
+        // 2가지 방법처럼 사용하는 것은 추천하지 않는다.
+        // css를 id나 class 등으로 컨트롤할 수 없을 경우에만 사용
+        // <hi id="first" style="color:red">내용</hi>
+        // firstTag.style.color = "red";
+
+        // 클래스를 추가 및 삭제해서 스타일을 변경한다.
+        // firstTag.classList.add("red");
+
+        // firstTag를 클릭할 때 반응
+        firstTag.onclick = ()=> {
+            // firstTag 클래스 중 red가 포함되어 있으면?
+            if(firstTag.classList.contains("red")){
+                // red를 클래스에서 제거
+                firstTag.classList.remove("red");
+            }else {
+                // red를 클래스에 추가
+                firstTag.classList.add("red");
+            }
+        }
+
+        // f5로 실행 후 f12눌러서 elements를 보면서 클릭을 하면 
+        // class에 색이 추가됬다 삭제되는 모습이 보임.
+    </script>
+</body>
+</html>

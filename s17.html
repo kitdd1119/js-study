@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1 id="first" onkey></h1> -->
+    <h1 id="first"></h1>
+    <script>
+        // 키보드 이벤트
+        // 화면에 키보드를 입력하면 h1에 입력한 key가 들어가도록 해보기
+
+        // f12눌러서 콘솔 확인해보기 (콘솔에다 값을 넣는게 아님.)
+        // 1
+        // document.body.querySelector("#first").addEventListener("keyup", () => {
+        //     alert("키보드를 눌렀습니다.");
+        // });
+
+        // 2
+        // document.body.addEventListener("keyup", (event) => {
+        //     console.log(event);
+        // });
+
+        // 3
+        // document.body.addEventListener("keyup", (event) => {
+        //     const first = document.querySelector("#first");
+        //     first.innerHTML = first.innerHTML + event.key;
+        // });
+        
+
+        // 단축키 만들기
+        document.body.addEventListener("keyup", (event) => {
+            // console.log(event);
+            // ctrl + i 를 사용하면 alert("ctrl + i") 창 출력
+            if(event.ctrlKey && event.code === "KeyI"){ // 대문자 입력 잘 확인하기.
+                alert("ctrl + i");
+            }
+
+        })
+
+    </script>
+</body>
+</html>
