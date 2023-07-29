@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 할 일
+        // 세탁기 돌리기(Promise) 1 - 세탁 끝나면 빨랫감 널기 2 - 라면 먹기 3
+        // 세탁기를 돌리기 시작할 때 "세탁을 시작합니다." 메시지 출력 1
+        // 세탁기가 다 돌아가면 "빨랫감을 널었습니다." 메시지 출력 3
+        // 라면을 다 먹으면 "라면을 먹었습니다." 메시지 출력 2
+
+        // const 세탁중 = true;
+
+        // // 프로미스
+        // const promise = new Promise((resolve, reject)=>{
+        //     // 프로미스 내에서 작업을 하고
+        //     // 작업이 성공하면 resolve 실행 / 실패하면 reject 실행
+        //     setTimeout(()=>{
+        //         if(세탁중) {
+        //             resolve("라면을 먹었습니다.");
+        //         }else {
+        //             reject("집안일 실패");
+                    
+        //         }
+        //     },5000);
+        // });
+
+        // promise
+        // // resolve로 결과가 나오면 then안에 있는 콜백함수가 실행된다.
+        // .then((value)=>{
+        //     console.log(value);
+        // }) 
+        // // reject로 결과가 나오면 catch안에 있는 콜백함수가 실행된다.
+        // .catch((value)=>{
+        //     console.log(value);
+        // })
+        // // 어떻게 결과가 나오든 무조건 실행된다.
+        // .finally(()=>{
+        //     console.log("빨랫감을 널었습니다.");
+        // }, 2000);
+
+        // console.log("세탁을 시작합니다.");
+
+
+        // 동기
+        
+        // console.log("세탁을 시작합니다.");
+        // console.log("라면을 먹었습니다.");
+        // console.log("빨랫감을 널었습니다.");
+
+
+        // 비동기
+        const 빨래시간 = 2000;
+        const 세탁기_상태 = false;
+
+        console.log("세탁을 시작합니다.");
+        new Promise((resolve, reject)=>{
+            if(세탁기_상태){
+                setTimeout(()=>{
+                resolve("빨래완료");
+                }, 빨래시간);
+            } else {
+                setTimeout(()=>{
+                reject("세탁기 고장");
+                }, 빨래시간);
+            }
+            
+        }).then(()=>{
+            console.log("빨랫감을 널었습니다.");
+        }).catch(()=>{
+            console.log("세탁기가 고장났습니다.");
+        });
+        console.log("라면을 먹었습니다.");
+
+
+
+    </script>
+</body>
+</html>
